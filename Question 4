@@ -1,0 +1,75 @@
+public class Question4 {
+	    public static void main(String[] args) {
+
+	        String s1 = " Hello World ";
+	        String s2 = "Hello World";
+	        String s3 = "Java Programming";
+
+	      
+	        System.out.println("Length: " + s1.length());
+
+	        
+	        System.out.println("Is Empty: " + s1.isEmpty());
+
+	       
+	        System.out.println("Character at index 1: " + s1.charAt(1));
+
+	        
+	        System.out.println("toString(): " + s1.toString());
+
+	      
+	        System.out.println("Equals: " + s1.equals(s2));
+
+	       
+	        System.out.println("CompareTo: " + s1.compareTo(s2));
+
+	        
+	        System.out.println("Contains 'World': " + s1.contains("World"));
+
+	       
+	        System.out.println("IndexOf 'o': " + s1.indexOf('o'));
+
+	        
+	        System.out.println("LastIndexOf 'o': " + s1.lastIndexOf('o'));
+
+	       
+	        System.out.println("StartsWith ' Hello': " + s1.startsWith(" Hello"));
+
+	      
+	        System.out.println("EndsWith 'World ': " + s1.endsWith("World "));
+
+	       
+	        System.out.println("Matches regex: " + s2.matches("Hello World"));
+
+	        
+	        System.out.println("Substring: " + s3.substring(5, 16));
+
+	        
+	        System.out.println("Lowercase: " + s3.toLowerCase());
+
+	     
+	        System.out.println("Trimmed: '" + s1.trim() + "'");
+
+	        
+	        System.out.println("Replace: " + s3.replace("Java", "Python"));
+
+	       
+	        String[] words = s3.split(" ");
+	        System.out.println("Split words:");
+	        for (String w : words) {
+	            System.out.println(w);
+	        }
+
+	        
+	        String joined = String.join("-", words);
+	        System.out.println("Joined: " + joined);
+
+	        
+	        int num = 100;
+	        String strNum = String.valueOf(num);
+	        System.out.println("ValueOf: " + strNum);
+	    }
+	}
+
+
+
