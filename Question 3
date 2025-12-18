@@ -1,0 +1,139 @@
+import java.util.Scanner;
+public class Question3 {
+	    
+	    static void readMatrix(int[][] a, int r, int c, Scanner sc) {
+	        for (int i = 0; i < r; i++) {
+	            for (int j = 0; j < c; j++) {
+	                a[i][j] = sc.nextInt();
+	            }
+	        }
+	    }
+
+	   
+	    static void displayMatrix(int[][] a, int r, int c) {
+	        for (int i = 0; i < r; i++) {
+	            for (int j = 0; j < c; j++) {
+	                System.out.print(a[i][j] + " ");
+	            }
+	            System.out.println();
+	        }
+	    }
+
+	   
+	    static void addMatrix(int[][] a, int[][] b, int r, int c) {
+	        int[][] sum = new int[r][c];
+	        for (int i = 0; i < r; i++)
+	            for (int j = 0; j < c; j++)
+	                sum[i][j] = a[i][j] + b[i][j];
+
+	        System.out.println("Addition Result:");
+	        displayMatrix(sum, r, c);
+	    }
+
+	   
+	    static void subtractMatrix(int[][] a, int[][] b, int r, int c) {
+	        int[][] diff = new int[r][c];
+	        for (int i = 0; i < r; i++)
+	            for (int j = 0; j < c; j++)
+	                diff[i][j] = a[i][j] - b[i][j];
+
+	        System.out.println("Subtraction Result:");
+	        displayMatrix(diff, r, c);
+	    }
+
+	   
+	    static void multiplyMatrix(int[][] a, int[][] b, int r1, int c1, int c2) {
+	        int[][] mul = new int[r1][c2];
+
+	        for (int i = 0; i < r1; i++) {
+	            for (int j = 0; j < c2; j++) {
+	                for (int k = 0; k < c1; k++) {
+	                    mul[i][j] += a[i][k] * b[k][j];
+	                }
+	            }
+	        }
+	        System.out.println("Multiplication Result:");
+	        displayMatrix(mul, r1, c2);
+	    }
+
+	    
+	    static void transposeMatrix(int[][] a, int r, int c) {
+	        System.out.println("Transpose:");
+	        for (int i = 0; i < c; i++) {
+	            for (int j = 0; j < r; j++) {
+	                System.out.print(a[j][i] + " ");
+	            }
+	            System.out.println();
+	        }
+	    }
+
+	    
+	    static boolean isSquare(int r, int c) {
+	        return r == c;
+	    }
+
+	  
+	    static boolean isDiagonal(int[][] a, int n) {
+	        for (int i = 0; i < n; i++)
+	            for (int j = 0; j < n; j++)
+	                if (i != j && a[i][j] != 0)
+	                    return false;
+	        return true;
+	    }
+
+	    
+	    static boolean isIdentity(int[][] a, int n) {
+	        for (int i = 0; i < n; i++)
+	            for (int j = 0; j < n; j++) {
+	                if (i == j && a[i][j] != 1)
+	                    return false;
+	                if (i != j && a[i][j] != 0)
+	                    return false;
+	            }
+	        return true;
+	    }
+
+	    public static void main(String[] args) {
+	        Scanner sc = new Scanner(System.in);
+
+	        System.out.print("Enter rows and columns: ");
+	        int r = sc.nextInt();
+	        int c = sc.nextInt();
+
+	        int[][] a = new int[r][c];
+	        int[][] b = new int[r][c];
+
+	        System.out.println("Enter Matrix A:");
+	        readMatrix(a, r, c, sc);
+
+	        System.out.println("Enter Matrix B:");
+	        readMatrix(b, r, c, sc);
+
+	        addMatrix(a, b, r, c);
+	        subtractMatrix(a, b, r, c);
+
+	        if (isSquare(r, c)) {
+	            multiplyMatrix(a, b, r, c, c);
+	            transposeMatrix(a, r, c);
+
+	            System.out.println("Square Matrix: YES");
+
+	            if (isDiagonal(a, r))
+	                System.out.println("Diagonal Matrix: YES");
+	            else
+	                System.out.println("Diagonal Matrix: NO");
+
+	            if (isIdentity(a, r))
+	                System.out.println("Identity Matrix: YES");
+	            else
+	                System.out.println("Identity Matrix: NO");
+	        } else {
+	            System.out.println("Matrix is NOT Square");
+	        }
+
+	        sc.close();
+	    }
+	}
+
+
+
